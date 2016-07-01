@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 */
 public class MemberBean {
 	private String id,pw,name,regDate,gender,ssn; 
-	private int age;
+	private int birth;
 	
 	public MemberBean() {}
 	
@@ -35,22 +35,22 @@ public class MemberBean {
 		case 1: case 5: 
 			this.gender="남"; 
 			ageResult0 = ageResult2 - 1900-(ageResult1/10000);
-			this.age = ageResult0;
+			this.birth = ageResult0;
 			break;
 		case 3: case 7:
 			this.gender="남"; 
 			ageResult0 = ageResult2 - 2000-(ageResult1/10000);
-			this.age = ageResult0;
+			this.birth = ageResult0;
 			break;
 		case 2: case 6:
 			this.gender="여";
 			ageResult0 = ageResult2 - 1900-(ageResult1/10000);
-			this.age = ageResult0;
+			this.birth = ageResult0;
 			break;
 		case 4: case 8:
 			this.gender="여";
 			ageResult0 = ageResult2 - 2000-(ageResult1/10000);
-			this.age = ageResult0;
+			this.birth = ageResult0;
 			break;
 		default:
 			System.out.println("잘못된값이 입력됨");
@@ -78,7 +78,8 @@ public class MemberBean {
 		return regDate;
 	}
 	public void setRegDate(String regDate) {
-		this.regDate = regDate;
+		String now = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
+		this.regDate = now;
 	}
 	public String getGender() {
 		return gender;
@@ -92,19 +93,22 @@ public class MemberBean {
 	public void setSsn(String ssn) {
 		this.ssn = ssn;
 	}
-	public int getAge() {
-		return age;
+	
+	public int getBirth() {
+		return birth;
 	}
-	public void setAge(int age) {
-		this.age = age;
+
+	public void setBirth(int birth) {
+		this.birth = birth;
 	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "학생 [아이디=" + id + ", 비번=****"  + ", 이름=" + name + ", 등록일=" + regDate + ", 성별=" + gender
-				+ ", 주민번호=" + ssn + ", 나이=" + age + "]";
+				+ ", 주민번호=" + ssn + ", 나이=" + birth + "]";
 	}
 	
 

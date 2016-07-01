@@ -1,14 +1,7 @@
-/**
- * 
- */
 package bank;
 
 import java.util.List;
-
 import javax.swing.JOptionPane;
-
-import member.MemberBean;
-
 /**
  * @date   :2016. 6. 15. 
  * @author :pakjkwan@gmail.com
@@ -24,6 +17,7 @@ public class BankController {
 		AccountService service = new AccountServiceImpl();
 		BankService bankService = new BankServiceImpl();
 		AccountBean tempAcc = new AccountBean();
+		
 		
 		while (true) {
 			switch (JOptionPane.showInputDialog(""
