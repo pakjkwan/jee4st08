@@ -1,5 +1,7 @@
 package member;
 
+import java.util.List;
+
 public class MemberServiceImpl implements MemberService{
 	
 	MemberDAO dao = MemberDAO.getInstance();
@@ -18,10 +20,8 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public String regist(MemberBean mem) {
 		String msg = "";
-		String sql = "insert into member(id,pw,name,reg_date,ssn)"
-				+ "values('"+mem.getId()+"','"+mem.getPw()+"','"+mem.getName()
-				+"','"+mem.getRegDate()+"','"+mem.getSsn()+"')";
-		int result = dao.exeUpdate(sql);
+		
+		int result = dao.insert(mem);
 		if (result==1) {
 			msg = "회원가입 축하합니다";
 		} else {
@@ -37,15 +37,45 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public void update(String pw) {
-		// TODO Auto-generated method stub
-		
+	public String update(MemberBean mem) {
+		String result = ""; 
+		if (dao.update(mem) == 1) {
+			result = "수정성공";
+		} else {
+			result = "수정실패";
+		}
+		return result;
 	}
 
 	@Override
-	public void delete() {
+	public String delete(String id) {
+		String result = ""; 
+		if (dao.delete(id) == 1) {
+			result = "삭제성공";
+		} else {
+			result = "삭제실패";
+		}
+		return result;
+	}
+
+
+	@Override
+	public int count() {
 		// TODO Auto-generated method stub
+		return dao.count();
+	}
+
+
+	@Override
+	public MemberBean findById(String findID) {
+		return dao.findById(findID);
+	}
+
+
+	@Override
+	public List<MemberBean> list() {
 		
+		return dao.list();
 	}
 
 }

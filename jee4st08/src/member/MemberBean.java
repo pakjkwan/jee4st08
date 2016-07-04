@@ -77,9 +77,12 @@ public class MemberBean {
 	public String getRegDate() {
 		return regDate;
 	}
-	public void setRegDate(String regDate) {
+	public void setRegDate() {
 		String now = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
 		this.regDate = now;
+	}
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
 	}
 	public String getGender() {
 		return gender;

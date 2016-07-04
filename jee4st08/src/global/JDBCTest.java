@@ -15,7 +15,7 @@ public class JDBCTest {
 		ResultSet rs = null;
 		int a=0;
 		String sql = "select * from test",result="";
-		String sql2 = "create table test(id varchar2(10))";
+		
 		List<String> list = new ArrayList<String>();
 		try {
 			Class.forName(Constants.ORACLE_DRIVER);
@@ -25,7 +25,7 @@ public class JDBCTest {
 					Constants.ORACLE_PW);
 			stmt = con.createStatement();
 			// rs = stmt.executeQuery(sql);
-			a = stmt.executeUpdate(sql2);
+			a = stmt.executeUpdate(sql);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

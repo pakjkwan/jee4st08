@@ -17,7 +17,11 @@ public class MemberController {
 	public static void main(String[] args) { // String[] params
 		MemberService service = MemberServiceImpl.getInstance();
 		while (true) {
-			switch (JOptionPane.showInputDialog("1등록 2보기 3수정 4삭제 0종료")) {
+			switch (JOptionPane.showInputDialog(""
+					+ "--- 회원이 보는 화면 ---\n"
+					+ "1회원가입 2로그인 3내정보보기(detail) 4내정보수정(비번) 5탈퇴 0종료\n"
+					+ "--- 관리자 화면 ---\n"
+					+ "11회원목록 12검색(ID) 13검색(이름) 14회원수(성별) 15회원수 ")) {
 			case "1":
 				MemberBean stu = new MemberBean();
 				String input = JOptionPane.showInputDialog("ID,PW,NAME,SSN");
@@ -31,9 +35,30 @@ public class MemberController {
 				break;
 			case "2":
 				break;
-			case "3":
-				break;
 			case "4":
+				MemberBean stu2 = new MemberBean();
+				String input2 = JOptionPane.showInputDialog("ID,PW");
+				String[]inputArr2 = input2.split(",");
+				stu2.setId(inputArr2[0]);
+				stu2.setPw(inputArr2[1]);
+				String result2 = service.update(stu2);
+				JOptionPane.showMessageDialog(null, result2);
+				break;
+			case "5":
+				String result3 = service.delete(JOptionPane.showInputDialog("ID"));
+				JOptionPane.showMessageDialog(null, result3);
+				break;
+			case "11":
+				JOptionPane.showMessageDialog(null, service.list());
+				break;
+			case "12":
+				String findID = JOptionPane.showInputDialog("조회할 ID");
+				JOptionPane.showMessageDialog(null, service.findById(findID));
+				break;
+			case "14":break;
+			case "15":
+				int count = service.count();
+				JOptionPane.showMessageDialog(null, count);
 				break;
 			case "0":
 				return;
