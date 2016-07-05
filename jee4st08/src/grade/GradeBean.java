@@ -1,43 +1,63 @@
 package grade;
 
 public class GradeBean {
-	private int kor,eng,math,seq;
-	private String name,hakjum;
+	private String id,grade,seq,examDate;
+	private int java,sql,html,javascript;
 	
-	public int getKor() {
-		return kor;
+	
+	
+	public String getExamDate() {
+		return examDate;
 	}
-	public void setKor(int kor) {
-		this.kor = kor;
+	public void setExamDate(String examDate) {
+		this.examDate = examDate;
 	}
-	public int getEng() {
-		return eng;
-	}
-	public void setEng(int eng) {
-		this.eng = eng;
-	}
-	public int getMath() {
-		return math;
-	}
-	public void setMath(int math) {
-		this.math = math;
-	}
-	public int getSeq() {
+	public String getSeq() {
 		return seq;
 	}
-	public void setSeq(int seq) {
+	public void setSeq(String seq) {
 		this.seq = seq;
 	}
-	public String getName() {
-		return name;
+	public int getJava() {
+		return java;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setJava(int java) {
+		this.java = java;
 	}
-	
+	public int getSql() {
+		return sql;
+	}
+	public void setSql(int sql) {
+		this.sql = sql;
+	}
+	public int getHtml() {
+		return html;
+	}
+	public void setHtml(int html) {
+		this.html = html;
+	}
+	public int getJavascript() {
+		return javascript;
+	}
+	public void setJavascript(int javascript) {
+		this.javascript = javascript;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getGrade() {
+		return grade;
+	}
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
 	@Override
 	public String toString() {
-		return "GradeBean [eng=" + eng + ", kor=" + kor + ", math=" + math + ", name=" + name + ", seq=" + seq + "]";
+		return "성적표 [No." + seq + ",아이디 :" + id + ", 학점 :" + grade + "\n"
+				+ "  자바 : " + java + ", SQL : " + sql
+				+ ", HTML5 : " + html + ", 자바스크립트 : " + javascript + "]";
 	}
-	
 }

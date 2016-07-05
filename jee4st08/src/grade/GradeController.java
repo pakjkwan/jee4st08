@@ -1,6 +1,7 @@
 package grade;
 
-import java.util.Scanner;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -25,10 +26,11 @@ public class GradeController {
 		while (true) {
 			
 			switch (JOptionPane.showInputDialog(""
-					+ "1추가 2수정 3삭제 4전체조회 5학점조회 6시퀀스조회 7응시생수"
+					+ "1추가 2수정 3삭제 4전체조회 5학점을 포함한 시험내역 조회(SEQ) "
+					+ "6시퀀스조회(ID) 7응시생수(시험일자별)"
 					+ "")) {
 			case "1":
-				
+			service.score(JOptionPane.showInputDialog("id,date,java,sql,html,js").split(","));
 				break;
 			case "2":break;
 			case "3":break;

@@ -1,5 +1,7 @@
 package grade;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class GradeServiceImpl implements GradeService {
@@ -13,8 +15,7 @@ private GradeServiceImpl() {
 }
 	@Override
 	public int insert(GradeBean grade) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.insert(grade);
 	}
 
 	@Override
@@ -51,6 +52,18 @@ private GradeServiceImpl() {
 	public int count() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	@Override
+	public void score(String[] a) {
+		// id,date,java,sql,html,js
+		GradeBean g = new GradeBean();
+		g.setId(a[0]);
+		g.setExamDate(a[1]);
+		g.setJava(Integer.parseInt(a[2]));
+		g.setSql(Integer.parseInt(a[3]));
+		g.setHtml(Integer.parseInt(a[4]));
+		g.setJavascript(Integer.parseInt(a[5]));
+		this.insert(g);
 	}
 
 }

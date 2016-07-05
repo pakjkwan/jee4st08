@@ -13,4 +13,6 @@ public interface GradeService {
 	public List<GradeBean> findByHakjum(String hakjum);
 	public GradeBean findBySeq(int seq);
 	public int count();
+	// 점수입력받는 메소드
+	public void score(String[] strArr);
 }
