@@ -30,10 +30,22 @@ public class GradeController {
 					+ "6시퀀스조회(ID) 7응시생수(시험일자별) 0종료"
 					+ "")) {
 			case "1":
-			service.score(JOptionPane.showInputDialog("id,date,java,sql,html,js").split(","));
+				service.score(JOptionPane.showInputDialog("id,date,java,sql,html,js").split(","));
 				break;
-			case "2":break;
-			case "3":break;
+			case "2":
+				GradeBean bean = new GradeBean();
+				 String input=JOptionPane.showInputDialog("과목,점수,seq");
+				 String[] inputArr = input.split(",");
+				 bean.setSubject(inputArr[0]);
+				 bean.setScore(Integer.parseInt(inputArr[1]));
+				 bean.setSeq(inputArr[2]);
+				 service.update(bean);
+				 
+				break;
+			case "3":
+				String del = JOptionPane.showInputDialog("시퀀스를 입력하시오.");
+				service.delete(del);
+				break;
 			case "4":
 				GradeUI ui = new GradeUI();
 				break;
@@ -47,7 +59,6 @@ public class GradeController {
 				break;
 			case "7":
 			String examDate = JOptionPane.showInputDialog("조회하려는 시험일자(예:2016-05)");
-				
 				JOptionPane.showMessageDialog(null, service.count(examDate)+"명");
 				break;
 			case "0":return;

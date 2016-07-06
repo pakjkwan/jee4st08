@@ -118,6 +118,67 @@ public class GradeDAO {
 		}
 		return bean;
 	}
+
+	public List<GradeBean> findById(String id) {
+		List<GradeBean> list = new ArrayList<GradeBean>();
+		String sql= "select * from grade where id = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				GradeBean bean = new GradeBean();
+				bean.setSeq(String.valueOf(rs.getInt("SEQ")));
+				bean.setExamDate(rs.getString("EXAM_DATE"));
+				bean.setJava(rs.getInt("JAVA"));
+				bean.setHtml(rs.getInt("HTML"));
+				bean.setSql(rs.getInt("SQL"));
+				bean.setJavascript(rs.getInt("JAVASCRIPT"));
+				bean.setId(rs.getString("ID"));
+				bean.setGrade(rs.getString("GRADE"));
+				list.add(bean);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+	public int update(GradeBean grade) {
+		//"과목,점수,seq"
+		int result = 0;
+		String sql = "update grade set"+ grade.getSubject()+"="+grade.getScore()+ "where seq =?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1,Integer.parseInt(grade.getSeq()));
+			result = pstmt.executeUpdate();
+		
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
+	public int delete(String del) {
+		int result =0;
+		String sql = "delete from grade where seq = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(del));
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
 	
 }
 	

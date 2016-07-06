@@ -1,11 +1,23 @@
 package grade;
 
 public class GradeBean {
-	private String id,grade,seq,examDate;
-	private int java,sql,html,javascript;
+	private String id,grade,seq,examDate, subject;
+	private int java,sql,html,javascript, score;
 	
 	
 	
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+	public int getScore() {
+		return score;
+	}
+	public void setScore(int score) {
+		this.score = score;
+	}
 	public String getExamDate() {
 		return examDate;
 	}

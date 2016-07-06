@@ -3,6 +3,8 @@
  */
 package bank;
 
+import java.util.List;
+
 /**
  * @date   :2016. 6. 20. 
  * @author :pakjkwan@gmail.com
@@ -10,51 +12,58 @@ package bank;
  * @story  :계좌 인터페이스
 */
 public class AccountServiceImpl implements AccountService {
-	// 1개설 2입금 3조회 4출금 5통장내역 6해지
-	AccountBean account;
+
 	@Override
-	public void openAccount(String name, String id, String pw) {
-		// 1개설
-		account = new AccountBean(name,id,pw);
+	public void openAccount(AccountBean acc) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void deposit(int inputMoney) {
-		// 2입금
-		int money = account.getMoney() ;
-		money+=inputMoney;
-		account.setMoney(money);
-	}
-
-	@Override
-	public void findAccount() {
-		// 3조회
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public String withdraw(int output) {
-		// 4출금
-		String result = "잔액부족";
-		int money = account.getMoney();
-		if (output <= money) {
-			money -= output;
-			account.setMoney(money);
-			result = String.valueOf(account.getMoney());
-		}
-		return result;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public String showAccount() {
-		// 5통장내역
-		return account.toString();
+	public String updateAccount(AccountBean acc) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public void deleteAccount() {
-		// 6해지
-		account = null;
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
+	public List<AccountBean> accountList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public AccountBean findByAccountNo(String accNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<AccountBean> findByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
