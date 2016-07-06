@@ -27,17 +27,29 @@ public class GradeController {
 			
 			switch (JOptionPane.showInputDialog(""
 					+ "1추가 2수정 3삭제 4전체조회 5학점을 포함한 시험내역 조회(SEQ) "
-					+ "6시퀀스조회(ID) 7응시생수(시험일자별)"
+					+ "6시퀀스조회(ID) 7응시생수(시험일자별) 0종료"
 					+ "")) {
 			case "1":
 			service.score(JOptionPane.showInputDialog("id,date,java,sql,html,js").split(","));
 				break;
 			case "2":break;
 			case "3":break;
-			case "4":break;
-			case "5":break;
-			case "6":break;
-			case "7":break;
+			case "4":
+				GradeUI ui = new GradeUI();
+				break;
+			case "5":
+				String seq = JOptionPane.showInputDialog("조회하려는 SEQ");
+				JOptionPane.showMessageDialog(null, service.findBySeq(seq));
+				break;
+			case "6":
+				String sid = JOptionPane.showInputDialog("조회하려는 ID");
+				JOptionPane.showMessageDialog(null, service.findById(sid));
+				break;
+			case "7":
+			String examDate = JOptionPane.showInputDialog("조회하려는 시험일자(예:2016-05)");
+				
+				JOptionPane.showMessageDialog(null, service.count(examDate)+"명");
+				break;
 			case "0":return;
 			default:
 				break;

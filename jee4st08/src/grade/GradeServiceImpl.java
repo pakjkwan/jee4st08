@@ -32,26 +32,25 @@ private GradeServiceImpl() {
 
 	@Override
 	public List<GradeBean> list() {
-		// TODO Auto-generated method stub
+		List<GradeBean> list = dao.list();
+		return list;
+	}
+
+	@Override
+	public List<GradeBean> findById(String id) {
+		
 		return null;
 	}
 
 	@Override
-	public List<GradeBean> findByHakjum(String hakjum) {
-		// TODO Auto-generated method stub
-		return null;
+	public GradeBean findBySeq(String seq) {
+		return dao.findBySeq(seq);
 	}
 
 	@Override
-	public GradeBean findBySeq(int seq) {
+	public int count(String examDate) {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int count() {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.count(examDate);
 	}
 	@Override
 	public void score(String[] a) {
@@ -65,5 +64,6 @@ private GradeServiceImpl() {
 		g.setJavascript(Integer.parseInt(a[5]));
 		this.insert(g);
 	}
+	
 
 }
