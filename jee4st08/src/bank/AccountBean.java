@@ -50,7 +50,7 @@ public class AccountBean {
 	public void setAccountNo() {
 		this.accountNo = (int) (Math.random() * 999999)+100000; 
 	}
-	public void setAcountNo(int accountNo){
+	public void setAccountNo(int accountNo){
 		this.accountNo = accountNo;
 	}
 	public void setName(String name) {
