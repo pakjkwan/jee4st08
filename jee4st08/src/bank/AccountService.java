@@ -19,7 +19,7 @@ public interface AccountService {
 		// 2입금
 		public void deposit(String depositInfo);
 		// 3출금
-		public String withdraw(int output);
+		public String withdraw(String withdrawInfo);
 		// 4.수정 .. 사용자의 요청에 의해 비번만 전환가능
 		public String updateAccount(AccountBean acc);
 		// 5해지

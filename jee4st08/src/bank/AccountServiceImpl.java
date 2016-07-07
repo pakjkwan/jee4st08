@@ -43,15 +43,29 @@ public class AccountServiceImpl implements AccountService {
 		String[] arr = depositInfo.split(",");
 		AccountBean acc = new AccountBean();
 		acc.setAccountNo(Integer.parseInt(arr[0]));
-		
-		acc.setMoney(Integer.parseInt(arr[1]));
-		
+		int money = this.restMoney(Integer.parseInt(arr[0])) 
+				+ Integer.parseInt(arr[1]);
+		acc.setMoney(money);
+		dao.deposit(acc);
 	}
 
 	@Override
-	public String withdraw(int output) {
-		// TODO Auto-generated method stub
-		return null;
+	public String withdraw(String withdrawInfo) {
+		String result = "";
+		String[] arr = withdrawInfo.split(",");
+		AccountBean acc = new AccountBean();
+		acc.setAccountNo(Integer.parseInt(arr[0]));
+		int restMoney = this.restMoney(Integer.parseInt(arr[0]));
+		int withdrawMoney = Integer.parseInt(arr[1]);
+		if (restMoney < withdrawMoney) {
+			result = "잔액이 부족합니다";
+		} else {
+			acc.setMoney(restMoney-withdrawMoney);
+			dao.withdraw(acc);
+			result = "잔액 : "+String.valueOf(this.restMoney(Integer.parseInt(arr[0])));
+		}
+		
+		return result;
 	}
 
 	@Override

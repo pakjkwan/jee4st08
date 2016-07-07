@@ -55,6 +55,20 @@ public class AccountDAO {
 		
 		return money;
 	}
-	
-	
+	public void deposit(AccountBean acc) {
+		String sql = "update account set money = ?"
+				+ "where account_no = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, acc.getMoney());
+			pstmt.setInt(2, acc.getAccountNo());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void withdraw(AccountBean acc) {
+		this.deposit(acc);
+	}
 }
