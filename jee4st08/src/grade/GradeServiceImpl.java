@@ -3,6 +3,7 @@ package grade;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class GradeServiceImpl implements GradeService {
 	GradeDAO dao = GradeDAO.getInstance();
@@ -38,14 +39,13 @@ public class GradeServiceImpl implements GradeService {
 	}
 
 	@Override
-	public List<GradeBean> list() {
-		List<GradeBean> list = dao.list();
+	public List<?> list() {
+		List<?> list = dao.list();
 		return list;
 	}
 
 	@Override
-	public List<GradeBean> findById(String id) {
-		
+	public List<?> findBy(String id) {
 		return dao.findById(id);
 	}
 
@@ -53,7 +53,10 @@ public class GradeServiceImpl implements GradeService {
 	public GradeBean findBySeq(String seq) {
 		return dao.findBySeq(seq);
 	}
-
+	@Override
+	public int count() {
+		return dao.count();
+	}
 	@Override
 	public int count(String examDate) {
 		return dao.count(examDate);
@@ -68,6 +71,11 @@ public class GradeServiceImpl implements GradeService {
 		g.setHtml(Integer.parseInt(a[4]));
 		g.setJavascript(Integer.parseInt(a[5]));
 		this.insert(g);
+	}
+	@Override
+	public Map<?, ?> map() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

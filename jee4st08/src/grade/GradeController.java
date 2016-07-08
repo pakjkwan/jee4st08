@@ -55,7 +55,7 @@ public class GradeController {
 				break;
 			case "6":
 				String sid = JOptionPane.showInputDialog("조회하려는 ID");
-				JOptionPane.showMessageDialog(null, service.findById(sid));
+				JOptionPane.showMessageDialog(null, service.findBy(sid));
 				break;
 			case "7":
 			String examDate = JOptionPane.showInputDialog("조회하려는 시험일자(예:2016-05)");

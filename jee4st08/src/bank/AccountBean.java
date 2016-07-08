@@ -12,11 +12,8 @@ import global.Constants;
  * @story  :
 */
 public class AccountBean {
-	private int accountNo; // 인스턴스 변수는 초기화를 하지 않는다
-	private String name;
-	private int money;
-	private String pw;
-	private String id;
+	private int accountNo,money; // 인스턴스 변수는 초기화를 하지 않는다
+	private String name,pw,id;
 	
 	public AccountBean() {
 		// default constructor 기본 생성자

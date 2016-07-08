@@ -151,4 +151,22 @@ public class MemberDAO {
 		String sql = "delete from member where id = '"+id+"'";
 		return exeUpdate(sql);
 	}
+
+	public boolean login(MemberBean member) {
+		boolean loginOk= false;
+		MemberBean m = this.findById(member.getId());
+		if(m.getPw().equals(member.getPw())){
+			loginOk = true;
+		}
+		return loginOk;
+	}
 }
+
+
+
+
+
+
+
+
+

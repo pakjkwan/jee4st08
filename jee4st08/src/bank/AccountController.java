@@ -19,7 +19,7 @@ public class AccountController {
 		while (true) {
 			switch (JOptionPane.showInputDialog(""
 					+ "1개설 2입금 3출금 4비번수정 5해지"
-					+ "6전제조회 7조회(계좌) 8조회(이름) 9통장수 0종료")) {
+					+ "6전제조회 7조회(계좌) 8조회(이름) 9통장수 10로그인 0종료")) {
 			case "1":
 				String id = JOptionPane.showInputDialog("ID");
 				String msg = service.openAccount(id);
@@ -43,10 +43,15 @@ public class AccountController {
 				JOptionPane.showMessageDialog(null, result2);
 				break;
 			case "5":break;
-			case "6":break;
+			case "6":
+				BankUI ui = new BankUI();
+				break;
 			case "7":break;
 			case "8":break;
 			case "9":break;
+			case "10":
+				
+				break;
 			case "0":return;
 
 			default:
