@@ -2,11 +2,70 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>회원목록</title>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+div{border: 5px solid powderblue;margin: 0 auto;
+	width: 600px;text-align: center;}
+</style>
 </head>
 <body>
-	목록보기 <br>
+<div>
+	<h1>목록보기</h1> <br> 
+	<table>
+	  <tr>
+	    <th>ID</th>
+	    <th>이 름</th>
+	    <th>등록일</th>
+	    <th>생년월일</th>
+	  </tr>
+	  <tr>
+	    <td>hong</td>
+	    <td>홍길동</td>
+	    <td>2016-07-03</td>
+	    <td>901001</td>
+	  </tr>
+	   <tr>
+	    <td>lee</td>
+	    <td>이순신</td>
+	    <td>2016-07-03</td>
+	    <td>031001</td>
+	  </tr>
+	   <tr>
+	    <td>song</td>
+	    <td>송지효</td>
+	    <td>2016-07-03</td>
+	    <td>891001</td>
+	  </tr>
+	   <tr>
+	    <td>park</td>
+	    <td>박지성</td>
+	    <td>2016-07-03</td>
+	    <td>061001</td>
+	  </tr>
+	   <tr>
+	    <td>kim</td>
+	    <td>김유신</td>
+	    <td>2016-07-03</td>
+	    <td>851001</td>
+	  </tr>
+	</table>
 	<a href="../memberController.html">회원관리 홈으로</a>
 	<a href="../../index.html">메인 홈으로</a>
+</div>
 </body>
 </html>
