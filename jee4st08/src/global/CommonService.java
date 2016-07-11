@@ -8,5 +8,8 @@ public interface CommonService {
 	public List<?> findBy(String keyword);
 	public int count();
 	public Map<?,?> map();
+	
+	
+	
 }
 
