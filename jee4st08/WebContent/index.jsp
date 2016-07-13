@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,10 +67,10 @@
 
 	<div id="nav">
 		<ul>
-			<li class="active"><a href="member/member_controller.html">회원관리</a></li>
-			<li><a href="grade/grade_controller.html">성적관리</a></li>
-			<li><a href="bank/account_controller.html">계좌관리</a></li>
-			<li><a href="global/school_info.html">학교소개</a></li>
+			<li class="active"><a href="member/member_controller.jsp">회원관리</a></li>
+			<li><a href="#">성적관리</a></li>
+			<li><a href="#">계좌관리</a></li>
+			<li><a href="global/school_info.jsp">학교소개</a></li>
 		</ul>
 	</div>
 
