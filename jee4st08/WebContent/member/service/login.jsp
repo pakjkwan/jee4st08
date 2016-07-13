@@ -4,18 +4,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>로그인</title>
 <link rel="stylesheet" href="../../css/member.css" />
 </head>
 <body>
 <div class="box">
-	<h1>로그인</h1>
-	<a href="../../index.jsp">
-		<img src="../../img/home.png" alt="home" style="width: 30px"/>
-	</a>
-	<a href="../member_controller.jsp">
-		<img src="../../img/member.jpg" alt="member" style="width: 30px"/>
-	</a>
-</div>	
+	<form action="../result/login_result.jsp" method="post">
+		<span class="meta">ID</span> <input type="text" name="id"/><br />
+		<span class="meta">비밀번호</span> <input type="password" name="pw" /><br />
+		<br /><br /><br />
+		<input type="submit" value="로그인" />
+		<input type="reset" value="취소" />
+	</form>
+	
+	</div>	
 </body>
 </html>
