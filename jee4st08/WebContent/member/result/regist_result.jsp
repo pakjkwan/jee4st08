@@ -38,6 +38,7 @@ div.joinDiv{border:1px dotted gray;width: 80%;margin:10px 50px 10px 50px}
 	<a href="../member_controller.jsp">
 		<img src="../../img/member.jpg" alt="member" style="width: 30px"/>
 	</a>
+	
 	</div>
 </body>
 </html>

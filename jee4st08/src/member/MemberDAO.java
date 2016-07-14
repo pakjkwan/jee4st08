@@ -38,7 +38,6 @@ public class MemberDAO {
 
 	public int exeUpdate(String sql) {
 		int result = 0;
-		
 		try {
 			Class.forName(Constants.ORACLE_DRIVER);
 			con = DriverManager.getConnection(

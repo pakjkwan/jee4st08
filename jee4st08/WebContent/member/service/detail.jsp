@@ -22,7 +22,7 @@
 		<table id="member_detail">
 			<tr>
 				<td rowspan="3" style="width:30%">
-					<img src="../../img/w3schools.jpg" alt="W3Schools.com" width="130" height="150">
+					<img src="<%=application.getContextPath()%>/img/w3schools.jpg" alt="W3Schools.com" width="130" height="150">
 				</td>
 				<td style="width:20%" class="font_bold bg_color_yellow">ID</td>
 				<td style="width:40%"></td>

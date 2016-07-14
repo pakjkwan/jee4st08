@@ -96,11 +96,12 @@ public class MemberServiceImpl implements MemberService{
 		// 2.로그인
 		String result = "";
 			if (dao.login(member)) {
-				result = "로그인성공";
 				session = dao.findById(member.getId());
+				result = session.getName();
+				System.out.println("서비스에서 이름 디버깅"+result);
 				accService.map();
 			}else{
-				result = "로그인실패";
+				result = "";
 			}
 		
 		return result;
