@@ -24,11 +24,12 @@ public class MemberDAO {
 
 	private MemberDAO() {
 		try {
+			Class.forName(Constants.ORACLE_DRIVER);
 			con = DriverManager.getConnection(
 					Constants.ORACLE_URL,
 					Constants.USER_ID,
 					Constants.USER_PW);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -83,13 +84,14 @@ public class MemberDAO {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()){
-				MemberBean t = new MemberBean(
-						rs.getString("ID"),
-						rs.getString("PW"),
-						rs.getString("NAME"), 
-						rs.getString("SSN")
-						);
-				t.setRegDate(rs.getString("REG_DATE"));
+				MemberBean t = new MemberBean();
+					t.setId(rs.getString("ID"));
+					t.setPw(rs.getString("PW"));
+					t.setName(rs.getString("NAME"));
+					t.setEmail(rs.getString("EMAIL"));
+					t.setGenderAndBirth("SSN");
+					t.setRegDate(rs.getString("REG_DATE"));
+					t.setProfileImg(rs.getString("PROFILE_IMG"));
 				list.add(t);
 			}
 		} catch (Exception e) {
@@ -101,7 +103,7 @@ public class MemberDAO {
 	// findByPK
 	public MemberBean findById(String pk) {
 		String sql = "select * from member where id = '"+pk+"'";
-		MemberBean temp = null;
+		MemberBean temp = new MemberBean();
 		try {
 			Class.forName(Constants.ORACLE_DRIVER);
 			con = DriverManager.getConnection(
@@ -112,18 +114,19 @@ public class MemberDAO {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(sql);
 			if(rs.next()){
-				temp = new MemberBean(
-						rs.getString("ID"),
-						rs.getString("PW"),
-						rs.getString("NAME"), 
-						rs.getString("SSN"));
+				temp.setId(rs.getString("ID"));
+				temp.setPw(rs.getString("PW"));
+				temp.setName(rs.getString("NAME"));
+				temp.setEmail(rs.getString("EMAIL"));
+				temp.setGenderAndBirth(rs.getString("SSN"));
 				temp.setRegDate(rs.getString("REG_DATE"));
+				temp.setProfileImg(rs.getString("PROFILE_IMG"));
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		System.out.println("DAO 결과(생년월일):"+temp.getBirth());
 		return temp;
 	}
 	// findByNotPK

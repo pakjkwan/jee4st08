@@ -19,7 +19,7 @@ public class MemberServiceImpl implements MemberService{
 
 	
 	private MemberServiceImpl() {
-		// TODO Auto-generated constructor stub
+		session = new MemberBean();
 	}
 	
 	@Override
@@ -46,7 +46,12 @@ public class MemberServiceImpl implements MemberService{
 		}
 		return result;
 	}
-
+	@Override
+	public MemberBean show() {
+		// 2보기
+		System.out.println("session 생년월일:"+session.getBirth());
+		return session;
+	}
 	@Override
 	public String delete(String id) {
 		String result = ""; 
@@ -98,7 +103,6 @@ public class MemberServiceImpl implements MemberService{
 			if (dao.login(member)) {
 				session = dao.findById(member.getId());
 				result = session.getName();
-				System.out.println("서비스에서 이름 디버깅"+result);
 				accService.map();
 			}else{
 				result = "";

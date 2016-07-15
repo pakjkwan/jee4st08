@@ -19,6 +19,6 @@ public interface MemberService extends CommonService{
 	public String update(MemberBean stu2);
 	public String delete(String string);
 	public String login(MemberBean member);
-	
+	public MemberBean show();
 	
 }
