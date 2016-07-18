@@ -41,19 +41,32 @@ public class MemberDAO {
 		return exeUpdate(sql);
 	}
 	public int update(MemberBean mem){
-		String sql = "update member set pw = '"+mem.getPw()
-			+"'where id = '"+mem.getId()+"'";
-		return exeUpdate(sql);
+		String sql = "update member"
+				+ " set pw = ? , email = ?"
+				+ " where id = ?";
+		int result = 0;
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem.getPw());
+			pstmt.setString(2, mem.getEmail());
+			pstmt.setString(3, mem.getId());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (result==1) {
+			System.out.println("DAO에서 수정 성공");
+		} else {
+			System.out.println("DAO에서 수정 실패");	
+		}
+		return result;
+		
 	}
 
 	public int exeUpdate(String sql) {
 		int result = 0;
 		try {
-			Class.forName(Constants.ORACLE_DRIVER);
-			con = DriverManager.getConnection(
-					Constants.ORACLE_URL,
-					Constants.USER_ID,
-					Constants.USER_PW);
 			stmt = con.createStatement();
 			result = stmt.executeUpdate(sql);
 		} catch (Exception e) {
@@ -158,9 +171,24 @@ public class MemberDAO {
 		return count;
 	}
 
-	public int delete(String id) {
-		String sql = "delete from member where id = '"+id+"'";
-		return exeUpdate(sql);
+	public int delete(MemberBean member) {
+		String sql = "delete from member where id=? and pw = ?";
+		int result = 0;
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getPw());
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if (result == 1) {
+			System.out.println("성공");
+		} else {
+			System.out.println("실패");
+		}
+		return result;
 	}
 
 	public boolean login(MemberBean param) {

@@ -19,37 +19,16 @@
 
 	<%
 	MemberService service = MemberServiceImpl.getInstance();
-	MemberBean member = new MemberBean();
-	
-	
-	String id = request.getParameter("id");
-	String newPw = request.getParameter("newPw");
-		if(id.equals("")||newPw.equals("")){
-			%>
-			<h2>회원가입 실패!!</h2>
-			<a href="../service/update.jsp">다시 시도하기</a>
+	MemberBean member = service.findById(request.getParameter("id"));
+	String pw = request.getParameter("pw");
+	String email = request.getParameter("email");
 		
-			<%
-		}else {
-			member.setId(id);
-			member.setPw(newPw);
+			member.setPw(pw);
+			member.setEmail(email);
 			
-			String spec = service.update(member);
-			application.log("DB다녀온 이름:"+spec);
-			if(spec.equals("")){
-				%>
-				<h2>로그인 실패!!</h2>
-				<a href="../service/update.jsp">다시 시도하기</a>
-				<%
-			}else {
-%>
-				
-				
-				<br/><br /><br />
-			<p>	변경되었습니다 <%= request.getParameter("id") %> 님</p><br/>
-<% 
-			}
-		}
+			service.update(member);
+			response.sendRedirect(ctx+"/member/service/detail.jsp");
+			
 		%>
 
 

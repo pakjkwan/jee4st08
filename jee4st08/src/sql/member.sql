@@ -31,3 +31,14 @@ update member set profile_img = id ||'.jpg' where profile_img IS NULL;
 -- DELETE
 delete from member where id = 'test';
 select * from member;
+
+select * from member where id='hong';
+
+
+
+
+
+
+
+
+

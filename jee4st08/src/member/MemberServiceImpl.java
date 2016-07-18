@@ -37,31 +37,24 @@ public class MemberServiceImpl implements MemberService{
 
 
 	@Override
-	public String update(MemberBean mem) {
-		String result = ""; 
-		if (dao.update(mem) == 1) {
-			result = "수정성공";
-		} else {
-			result = "수정실패";
-		}
-		return result;
+	public void update(MemberBean mem) {
+		int result = dao.update(mem);
+		if (result == 1) {
+			session = this.findById(mem.getId());
+		} 
 	}
 	@Override
 	public MemberBean show() {
-		// 2보기
-		System.out.println("session 생년월일:"+session.getBirth());
 		return session;
 	}
 	@Override
-	public String delete(String id) {
-		String result = ""; 
-		if (dao.delete(id) == 1) {
-			result = "삭제성공";
-		} else {
-			result = "삭제실패";
-		}
-		return result;
-	}
+	public void delete(MemberBean member) {
+		if (dao.delete(member) == 1) {
+				session = null;
+			}
+		} 
+
+	
 
 
 	@Override
@@ -109,5 +102,15 @@ public class MemberServiceImpl implements MemberService{
 			}
 		
 		return result;
+	}
+
+
+	@Override
+	public void logout(MemberBean member) {
+		if (member.getId().equals(session.getId()) 
+				&& member.getPw().equals(session.getPw())) {
+			session = null;
+		}
+		
 	}
 }

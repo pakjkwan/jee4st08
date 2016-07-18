@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="member.MemberServiceImpl" %>
+    <%@ page import="member.MemberService" %>
+    <%@ page import="member.MemberBean" %>
+    <% String ctx = application.getContextPath(); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +12,21 @@
 <link rel="stylesheet" href="../../css/member.css" />
 </head>
 <body>
+<div class="box">
+	<%
+		MemberService service = MemberServiceImpl.getInstance();
+		MemberBean member = new MemberBean();
+		
+		%>	
+		<form action="<%=ctx%>/member/result/delete_result.jsp" method = "post">
+	<input type="text" name ="confirm" value="" />
+	<input type="hidden" name="id" value="<%=service.show().getId() %>" />
 	
-	<div class="box">
+	<input type="submit" value="탈퇴" />
+		<input type="reset" value="취소" />
+	
+	
+	</form>
 	<embed src="../../img/starwars.gif">
 		<h1>탈퇴</h1> 
 	<a href="../../index.jsp">

@@ -1,21 +1,11 @@
-<%@ page language="java" 
-	contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<title>회원가입</title>
-	<link rel="stylesheet" href="../../css/member.css" />
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"     pageEncoding="UTF-8"%>
 <style type="text/css">
-span.meta{width: 200px;background-color:yellow;float: left;text-align: left}
-div.joinDiv{border:1px dotted gray;width: 80%;margin:10px 50px 10px 50px}	
-
+	span.meta{width: 200px;background-color:yellow;float: left;text-align: left}
+	div.joinDiv{border:1px dotted gray;width: 80%;margin:10px 50px 10px 50px}	
 </style>
-</head>
-<body>
-	<div class="box">
+<jsp:include page="../../global/top.jsp"/>
+<jsp:include page="../../global/header.jsp"/>
+<div class="box">
 	<form action="../result/regist_result.jsp" method="post">
 		<span class="meta">이름</span>	<input type="text" name="name" /><br />
 		<span class="meta">ID</span> <input type="text" name="id"/><br />
@@ -37,7 +27,8 @@ div.joinDiv{border:1px dotted gray;width: 80%;margin:10px 50px 10px 50px}
 		<input type="submit" value="회원가입" />
 		<input type="reset" value="취소" />
 	</form>
-	
-	</div>
-</body>
-</html>
+</div>
+<jsp:include page="../../global/footer.jsp"/>
+<jsp:include page="../../global/end.jsp"/>
+
+

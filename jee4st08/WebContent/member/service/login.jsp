@@ -1,13 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>로그인</title>
-<link rel="stylesheet" href="../../css/member.css" />
-</head>
-<body>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    
+<jsp:include page="../../global/top.jsp"/>
+<jsp:include page="../../global/header.jsp"/>
 <div class="box">
 	<form action="../result/login_result.jsp" method="post">
 		<span class="meta">ID</span> <input type="text" name="id"/><br />
@@ -18,5 +12,8 @@
 	</form>
 	
 	</div>	
+<jsp:include page="../../global/footer.jsp"/>
+<jsp:include page="../../global/end.jsp"/>
+
 </body>
 </html>

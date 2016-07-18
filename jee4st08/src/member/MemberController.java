@@ -47,12 +47,9 @@ public class MemberController {
 				String[]inputArr2 = input2.split(",");
 				stu2.setId(inputArr2[0]);
 				stu2.setPw(inputArr2[1]);
-				String result2 = service.update(stu2);
-				JOptionPane.showMessageDialog(null, result2);
+				service.update(stu2);
 				break;
 			case "5":
-				String result3 = service.delete(JOptionPane.showInputDialog("ID"));
-				JOptionPane.showMessageDialog(null, result3);
 				break;
 			case "11":
 				JOptionPane.showMessageDialog(null, service.list());

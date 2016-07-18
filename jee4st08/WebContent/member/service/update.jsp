@@ -21,18 +21,13 @@
 <body>
 <!-- //id, name, ssn, birth, regDate, gender, proImg -->
 <div class="box">
-		<h1>회원상세정보</h1>
+		<h1>회원정보 수정</h1>
 		<%
 		MemberService service = MemberServiceImpl.getInstance();
 		MemberBean member = new MemberBean();
 		
-		if(service.show() == null){
-			%>
-			<h1>로그인을 해주세요.</h1>
-			<%
-		} else {
 		%>		
-		
+		<form action="<%=ctx%>/member/result/update_result.jsp" method="post">
 		
 		<table id="member_detail">
 				<tr>
@@ -45,7 +40,8 @@
 			<tr>
 				<td class="font_bold bg_color_yellow">비밀번호</td>
 				<td>
-				<input type="text" name="pw" value="<%= service.show().getPw() %>"/>
+				<input type="text" name="pw" 
+					value="<%= service.show().getPw() %>"/>
 				</td>
 			</tr>
 			<tr>
@@ -62,7 +58,8 @@
 				
 				<td class="font_bold bg_color_yellow">이메일</td>
 				<td>
-					<input type="text" name="email" value="<%= service.show().getEmail() %>"/>
+					<input type="text" name="email" 
+					value="<%= service.show().getEmail() %>"/>
 				</td>
 			</tr>
 			<tr>
@@ -75,10 +72,11 @@
 				
 			</tr>
 		</table>
+		<input type="hidden" name="id" value="<%= service.show().getId() %>"/>
+		<input type="submit" value="수 정" />
+		<input type="reset" value="취 소" />
+		</form>
 		
-		<%
-		}
-		%>
 		<br /> 
 		<p>
 			
